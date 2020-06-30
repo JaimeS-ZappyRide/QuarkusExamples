@@ -1,0 +1,15 @@
+version: '3'
+services:
+  backend_db:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      # - MYSQL_USER:my_user
+      # - MYSQL_DATABASE:evdata
+      # - MYSQL_PASSWORD=my_password
+    expose:
+      - "3306"
+    ports:
+      - 3306:3306
+    volumes:
+      - ./sql_files:/docker-entrypoint-initdb.d
